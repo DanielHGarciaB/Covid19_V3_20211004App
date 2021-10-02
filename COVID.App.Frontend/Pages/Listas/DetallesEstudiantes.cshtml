@@ -1,0 +1,28 @@
+﻿@page
+@model COVID.App.Frontend.Pages.DetallesEstudiantesModel
+@{
+}
+
+<h1>Hoja de Detalles Estudiantes</h1>
+@foreach(var estudiante in Model.Estudiantes)
+{
+    <table class="table">
+        <tr>
+            <td><b>Nombre:</b></td>
+            <td>@estudiante.nombre</td>
+        </tr>
+        <tr>
+            <td><b>Apellidos:</b></td>
+            <td>@estudiante.apellido</td>
+        </tr>
+        <tr>
+            <td><b>Edad:</b></td>
+            <td>@estudiante.edad</td>
+        </tr>
+        <tr>
+             <td><b>Estado COVID:</b></td>
+             <td>@estudiante.estado</td>
+        </tr>  
+    </table>
+    <a href="/Listas/Estudiantes">Gestor de Estudiantes</a>
+}

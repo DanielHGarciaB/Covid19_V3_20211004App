@@ -1,0 +1,67 @@
+﻿@page
+@model COVID.App.Frontend.Pages.PersonalAseoModel
+@{
+}
+<br>
+<h1>Gestor de Personal Aseo</h1>
+<form action="/listas/PersonalAseo" method="post">
+    <fieldset>
+
+        <legend>Personal Aseo</legend>
+
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[nombre_persona]" id="jform_nombre" for="Nombre_persona" type="text" class="form-control required invalid" placeholder="Nombre" aria-label="Nombre" required aria-required="true" aria-invalid="true">
+            </div>
+            <div class="col">
+                <input name="jform[apellidos_persona]" id="jform_apellido" type="text" class="form-control required invalid" placeholder="Apellido" aria-label="Apellido" required aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[edad_persona]" id="jform_edad" type="text" class="form-control" placeholder="Edad" aria-label="Edad">
+            </div>
+            <div class="col">
+                <input name="jform[turno_personaAseo]" id="jform_carrera" type="text" class="form-control" placeholder="Turno" aria-label="Turno" required="required" aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        
+        <div class="content">
+            <div class="row">
+            <div class="col-sm-12"> <input class="btn btn-primary" type="button" class= "btn" value="Crear"> 
+              </div>
+            </div>
+	    </div>
+        <br>     
+
+
+               
+    </fieldset>
+</form>
+
+<h2>Lista de Personal Aseo</h2>
+<table class="table">
+    <tr>
+            <td><b>Nombre</b></td>
+            <td><b>Apellidos</b></td>
+            <td><b>Edad</b></td>
+            <td><b>Estado COVID</b></td>
+    </tr>
+        @foreach(var personalAseo in Model.Personal_Aseo)
+    {
+        <tr>
+            <td>@personalAseo.nombre</td>
+            <td>@personalAseo.apellido</td>
+            <td>@personalAseo.edad</td>
+            <td>@personalAseo.estado</td>
+            <td>
+                <a class="btn btn-primary table-btn"  asp-page="/Listas/DetallesPersonaAseo" asp-route-idPersonal_Aseo="@personalAseo.id">
+                    <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+                    Detalle
+                </a>
+            </td>
+        </tr>
+    }
+</table>

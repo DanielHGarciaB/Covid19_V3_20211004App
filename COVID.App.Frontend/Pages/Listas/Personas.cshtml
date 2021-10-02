@@ -1,0 +1,98 @@
+﻿@page
+@model COVID.App.Frontend.Pages.PersonasModel
+@{
+}
+<h1>Profesores</h1>
+<form action="/listas/Personas" method="post">
+    <fieldset>
+
+        <legend>Gestor de Profesores</legend>
+
+        <div class="control-group field-spacer">
+            <div class="control-label">
+                <span class="spacer">
+                    <span class="before"></span>
+                    <span class="text">
+                        <label id="jform_spacer-lbl" class="">
+                            <strong class="red"> *</strong> 
+                            Campo obligatorio
+                        </label>
+                    </span>
+                    <span class="after"></span>
+                </span>                 
+            </div>
+            <div class="controls"> </div>
+        </div>
+
+        <div class="control-label">
+            <label id="Nombre_persona" for="Nombre_persona" class="hasPopover required invalid" title="" data-content="Nombre persona." data-original-title="Nombre">
+                Nombre
+                <span class="star">&nbsp;*</span>
+            </label>
+        </div>
+        <div class="controls">
+            <input type="text" name="jform[nombre_persona]" id="jform_nombre" value="" class="required invalid" size="30" required="required" aria-required="true" aria-invalid="true">
+        </div>
+
+        <div class="control-label">
+            <label id="Apellidos_persona" for="Apellidos_persona" class="hasPopover required invalid" title="" data-content="Apellido persona." data-original-title="Apllido">
+                Apellidos
+                <span class="star">&nbsp;*</span>
+            </label>
+        </div>
+        <div class="controls">
+            <input type="text" name="jform[apellidos_persona]" id="jform_apellido" value="" class="required invalid" size="30" required="required" aria-required="true" aria-invalid="true">
+        </div> 
+        
+        <div class="control-label">
+            <label id="Edad_persona" for="Edad_persona" class="hasPopover required invalid" title="" data-content="Edad persona." data-original-title="Edad">
+                Edad
+                <span class="star">&nbsp;*</span>
+            </label>
+        </div>
+        <div class="controls">
+            <input type="text" name="jform[edad_persona]" id="jform_edad" value="" class="required invalid" size="5" required="required" aria-required="true" aria-invalid="true">
+        </div>
+
+        <div class="control-label">
+            <label id="Departamento_Profesor" for="Departamento_Profesor" class="hasPopover required invalid" title="" data-content="Departamento_Profesor." data-original-title="Departamento">
+                Departamento
+                <span class="star">&nbsp;*</span>
+            </label>
+        </div>
+        <div class="controls">
+            <input type="text" name="jform[departamento_profesor]" id="jform_departamento" value="" class="required invalid" size="30" required="required" aria-required="true" aria-invalid="true">
+        </div>
+
+        <div class="control-label">
+            <label id="Asignatura_Profesor" for="Asignatura_Profesor" class="hasPopover required invalid" title="" data-content="Asignatura_Profesor" data-original-title="Asignatura_Profesor">
+                Materia
+                <span class="star">&nbsp;*</span>
+            </label>
+        </div>
+        <div class="controls">
+            <input type="text" name="jform[departamento_profesor]" id="jform_departamento" value="" class="required invalid" size="30" required="required" aria-required="true" aria-invalid="true">
+        </div>
+               
+    </fieldset>
+</form>
+
+<h2>Lista de Profesores</h2>
+<table class="table">
+    <tr>
+            <td><b>Nombre</b></td>
+            <td><b>Apellidos</b></td>
+            <td><b>Edad</b></td>
+            <td><b>Estado COVID</b></td>
+    </tr>
+        @foreach(var profesor in Model.Profesores)
+    {
+        <tr>
+            <td>@profesor.nombre</td>
+            <td>@profesor.apellido</td>
+            <td>@profesor.edad</td>
+            <td>@profesor.estado</td>
+            @*Detalles*@
+        </tr>
+    }
+</table>

@@ -1,0 +1,73 @@
+﻿@page
+@model COVID.App.Frontend.Pages.DirectivosModel
+@{
+}
+<br>
+<h1>Gestor de Directivos</h1>
+<form action="/listas/Directivos" method="post">
+    <fieldset>
+
+        <legend>Directivo</legend>
+
+
+
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[nombre_persona]" id="jform_nombre" for="Nombre_persona" type="text" class="form-control required invalid" placeholder="Nombre" aria-label="Nombre" required aria-required="true" aria-invalid="true">
+            </div>
+            <div class="col">
+                <input name="jform[apellidos_persona]" id="jform_apellido" type="text" class="form-control required invalid" placeholder="Apellido" aria-label="Apellido" required aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[edad_persona]" id="jform_edad" type="text" class="form-control" placeholder="Edad" aria-label="Edad">
+            </div>
+            <div class="col">
+                <input name="jform[facultad_directivos]" id="jform_carrera" type="text" class="form-control" placeholder="Facultad" aria-label="Facultad" required="required" aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        
+
+        <div class="content">
+            <div class="row">
+            <div class="col-sm-12"> <input class="btn btn-primary" type="button" class= "btn" value="Crear"> 
+              </div>
+            </div>
+	    </div>
+        <br> 
+
+
+
+        
+
+               
+    </fieldset>
+</form>
+
+<h2>Lista de Directivos</h2>
+<table class="table">
+    <tr>
+            <td><b>Nombre</b></td>
+            <td><b>Apellidos</b></td>
+            <td><b>Edad</b></td>
+            <td><b>Estado COVID</b></td>
+    </tr>
+        @foreach(var directivo in Model.Directivos)
+    {
+        <tr>
+            <td>@directivo.nombre</td>
+            <td>@directivo.apellido</td>
+            <td>@directivo.edad</td>
+            <td>@directivo.estado</td>
+            <td>
+                <a class="btn btn-primary table-btn"  asp-page="/Listas/DetallesDirectivos" asp-route-iddirectivo="@directivo.id">
+                    <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+                    Detalle
+                </a>
+            </td>
+        </tr>
+    }
+</table>

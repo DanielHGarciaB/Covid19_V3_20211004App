@@ -1,0 +1,28 @@
+﻿@page
+@model COVID.App.Frontend.Pages.DetallesDirectivosModel
+@{
+}
+
+<h1>Hoja de Detalles Directivos</h1>
+@foreach(var directivo in Model.Directivos)
+{
+    <table class="table">
+        <tr>
+            <td><b>Nombre:</b></td>
+            <td>@directivo.nombre</td>
+        </tr>
+        <tr>
+            <td><b>Apellidos:</b></td>
+            <td>@directivo.apellido</td>
+        </tr>
+        <tr>
+            <td><b>Edad:</b></td>
+            <td>@directivo.edad</td>
+        </tr>
+        <tr>
+             <td><b>Estado COVID:</b></td>
+             <td>@directivo.estado</td>
+        </tr>  
+    </table>
+    <a href="/Listas/Directivos">Gestor de Directivos</a>
+}

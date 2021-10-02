@@ -1,0 +1,28 @@
+﻿@page
+@model COVID.App.Frontend.Pages.DetallesPersonaAseoModel
+@{
+}
+
+<h1>Hoja de Detalles Personal Aseo</h1>
+@foreach(var personalaseo in Model.PersonalAseo)
+{
+    <table class="table">
+        <tr>
+            <td><b>Nombre:</b></td>
+            <td>@personalaseo.nombre</td>
+        </tr>
+        <tr>
+            <td><b>Apellidos:</b></td>
+            <td>@personalaseo.apellido</td>
+        </tr>
+        <tr>
+            <td><b>Edad:</b></td>
+            <td>@personalaseo.edad</td>
+        </tr>
+        <tr>
+             <td><b>Estado COVID:</b></td>
+             <td>@personalaseo.estado</td>
+        </tr>  
+    </table>
+    <a href="/Listas/PersonalAseo">Gestor de Personal Aseo</a>
+}

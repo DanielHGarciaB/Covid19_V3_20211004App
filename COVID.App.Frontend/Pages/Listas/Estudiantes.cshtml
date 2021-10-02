@@ -1,0 +1,93 @@
+﻿@page
+@model COVID.App.Frontend.Pages.EstudiantesModel
+@{
+}
+<br>
+<h1>Gestor de Estudiantes</h1>
+@*
+<form method="get">
+    <div class="form-group">
+    <p>
+    Buscar:<input type="text" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+*@
+<form action="/listas/Estudiantes" method="post">
+    <fieldset>
+
+        <legend>Estudiante</legend>
+
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[nombre_persona]" id="jform_nombre" for="Nombre_persona" type="text" class="form-control required invalid" placeholder="Nombre" aria-label="Nombre" required aria-required="true" aria-invalid="true">
+            </div>
+            <div class="col">
+                <input name="jform[apellidos_persona]" id="jform_apellido" type="text" class="form-control required invalid" placeholder="Apellido" aria-label="Apellido" required aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[edad_persona]" id="jform_edad" type="text" class="form-control" placeholder="Edad" aria-label="Edad">
+            </div>
+            <div class="col">
+                <input name="jform[carrera_profesor]" id="jform_carrera" type="text" class="form-control" placeholder="Carrera" aria-label="Carrera" required="required" aria-required="true" aria-invalid="true">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3">
+            <div class="col">
+                <input name="jform[semestre_profesor]" id="jform_semestre" type="text" class="form-control" placeholder="Semestre" aria-label="Semestre" required="required" aria-required="true" aria-invalid="true">
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+        <br>
+
+        <div class="content">
+            <div class="row">
+            <div class="col-sm-12"> <input class="btn btn-primary" type="button" class= "btn" value="Crear"> 
+              </div>
+            </div>
+	    </div>
+        <br>     
+
+
+
+
+        
+               
+    </fieldset>
+</form>
+
+
+
+
+<h2>Lista de Estudiantes</h2>
+<table class="table">
+    <tr>
+            <td><b>Nombre</b></td>
+            <td><b>Apellidos</b></td>
+            <td><b>Edad</b></td>
+            <td><b>Estado COVID</b></td>
+    </tr>
+        @foreach(var estudiante in Model.Estudiantes)
+    {
+        <tr>
+            <td>@estudiante.nombre</td>
+            <td>@estudiante.apellido</td>
+            <td>@estudiante.edad</td>
+            <td>@estudiante.estado</td>
+            <td>
+                <a class="btn btn-primary table-btn"  asp-page="/Listas/DetallesEstudiantes" asp-route-idestudiante="@estudiante.id">
+                    <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+                    Detalle
+                </a>
+            </td>
+            
+            
+        </tr>
+    }
+</table>
